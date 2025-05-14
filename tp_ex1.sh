@@ -8,10 +8,10 @@ mkfifo ./fifo
 
 function interpret () {
   echo "Bienvenue"
-  echo $(date)
+  date
 }
 
 while true
 do
-  nc -l -s "$IP" -p "$PORT" < ./fifo | interpret > ./fifo
+  nc -l -s "$IP" -p "$PORT" < ./fifo | ( interpret ) > ./fifo
 done
