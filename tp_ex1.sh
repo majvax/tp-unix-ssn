@@ -13,5 +13,6 @@ function interpret () {
 
 while true
 do
+  # shellcheck disable=SC2094 
   nc -l -s "$IP" -p "$PORT" < ./fifo | ( interpret ) > ./fifo
 done
