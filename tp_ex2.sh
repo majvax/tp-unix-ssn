@@ -1,4 +1,6 @@
 #!/bin/bash
+# shellcheck disable=SC2181 # disable style check for line 39 
+
 
 IP=localhost
 PORT=12345
@@ -9,7 +11,7 @@ is_open=true
 
 
 function interpret () {
-  while read line ; do
+  while read -r line ; do
     # Allow the client to close the server
     # This will ensure that the socket close properly
     # So the port is reusable
