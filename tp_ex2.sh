@@ -1,6 +1,5 @@
 #!/bin/bash
-# shellcheck disable=SC2181 # disable style check for line 39 
-
+# shellcheck disable=SC2181,SC2094 
 
 IP=localhost
 PORT=12345
@@ -31,7 +30,6 @@ function interpret () {
 
 while [ "$is_open" = true ]
 do
-  # shellcheck disable=SC2094 
   nc -l -s "$IP" -p "$PORT" < ./fifo | ( interpret ) > ./fifo
 
   # Use the error code of interpret cause
