@@ -14,7 +14,9 @@ while read -r line ; do
 done < configuration.conf
 
 
-if [[ -z ${password+x} ]] ; then
+# check if password exists
+# see https://stackoverflow.com/a/13864829/214577 for reference
+if [ -z ${password+x} ] ; then
   echo "missing 'password' key in configuration.conf"
   exit 1
 fi
