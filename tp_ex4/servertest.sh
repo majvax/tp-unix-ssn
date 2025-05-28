@@ -2,10 +2,11 @@
 # shellcheck disable=SC2181,SC2094
 
 IP=localhost
-PORT=12345
+PORT=12344
 
 rm ./fifo
 mkfifo ./fifo
+
 is_open=true
 
 while read -r line; do
@@ -36,6 +37,19 @@ function interpret() {
     if [ "$line" == "/close" ]; then
       echo "bye bye!"
       return 1
+    # Close the client by breaking the loop
+    # It kinda work.
+    elif [ "$line" == "/exit" ]; then
+      return 0
+    elif [ "$line" == "/help" ]; then
+      echo "Available commands:"
+      echo "  /close: close the server"
+      echo "  /exit: exit the server"
+      echo "  /help: show this help message"
+      echo "  <any other command>: execute the command in bash"
+    elif [ -z "$line" ]; then
+      # Ignore empty lines
+      continue
     else
       # Run the line using bash -c
       # so argument are preserved (like 'ls -l .')
