@@ -1,5 +1,5 @@
 #!/bin/bash
-# shellcheck disable=SC2181,SC2094
+# shellcheck disable=SC2181,SC2094,SC1091
 
 IP=localhost
 PORT=12345
