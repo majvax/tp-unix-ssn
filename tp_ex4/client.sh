@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2018,SC2019
 
 SERVER=localhost
 PORT=12344
