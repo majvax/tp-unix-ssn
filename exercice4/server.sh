@@ -17,9 +17,6 @@ mkfifo ./fifo
 
 is_open=true
 
-# while read -r line; do
-#  eval "$line"
-#done <configuration.conf
 source configuration.conf
 
 # check if password exists
