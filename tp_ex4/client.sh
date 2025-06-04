@@ -9,8 +9,7 @@ send() {
 }
 
 decode() {
-  alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  echo "$1" | tr "$KEY" "$alphabet" | tr "$(echo "$KEY" | tr 'A-Z' 'a-z')" 'a-z'
+  echo "$1" | tr "$KEY" 'A-Z' | tr "$(echo "$KEY" | tr 'A-Z' 'a-z')" 'a-z'
 }
 
 function interpret() {
@@ -29,5 +28,3 @@ function recv() {
 }
 
 interpret | nc "$SERVER" "$PORT" | recv
-
-echo "disconnected, au revoir!"

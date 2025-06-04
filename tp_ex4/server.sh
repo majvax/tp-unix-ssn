@@ -4,15 +4,12 @@
 IP=localhost
 PORT=12344
 
-# Monoalphabetic cipher encryption
 send() {
   echo "$1" | tr 'A-Z' "$2" | tr 'a-z' "$(echo "$2" | tr 'A-Z' 'a-z')"
 }
 
-# Monoalphabetic cipher decryption
 decode() {
-  alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  echo "$1" | tr "$2" "$alphabet" | tr "$(echo "$2" | tr 'A-Z' 'a-z')" 'a-z'
+  echo "$1" | tr "$2" 'A-Z' | tr "$(echo "$2" | tr 'A-Z' 'a-z')" 'a-z'
 }
 
 rm ./fifo
